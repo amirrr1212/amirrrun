@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS:GO Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>CS:GO Hub</header>
+    <nav>
+        <a onclick="showSection('tournaments')">Турниры</a>
+        <a onclick="showSection('teams')">Команды</a>
+        <a onclick="showSection('history')">История</a>
+    </nav>
+    <div class="loading">
+        <div class="spinner"></div>
+        <p>Загрузка...</p>
+    </div>
+    <div class="content">
+        <!-- Турниры -->
+        <div id="tournaments" class="section">
+            <h2>Текущие и будущие турниры</h2>
+            <div class="section-content">
+                <ul>
+                    <li>
+                        <h3>BLAST Premier World Final 2024</h3>
+                        <p>Дата: 14-18 декабря 2024 года</p>
+                        <p>Призовой фонд: $1,000,000</p>
+                    </li>
+                    <li>
+                        <h3>IEM Katowice 2025</h3>
+                        <p>Дата: 8-17 февраля 2025 года</p>
+                        <p>Локация: Катовице, Польша</p>
+                        <p>Призовой фонд: $1,500,000</p>
+                    </li>
+                    <li>
+                        <h3>ESL Pro League Season 20</h3>
+                        <p>Дата: 3 марта - 2 апреля 2025 года</p>
+                        <p>Локация: Мальта</p>
+                        <p>Призовой фонд: $850,000</p>
+                    </li>
+                    <li>
+                        <h3>PGL Major Copenhagen 2025</h3>
+                        <p>Дата: 10-23 ноября 2025 года</p>
+                        <p>Локация: Копенгаген, Дания</p>
+                        <p>Призовой фонд: $2,000,000</p>
+                    </li>
+                    <li>
+                        <h3>DreamHack Open Summer 2025</h3>
+                        <p>Дата: 20-22 июня 2025 года</p>
+                        <p>Локация: Йёнчёпинг, Швеция</p>
+                        <p>Призовой фонд: $100,000</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Команды -->
+        <div id="teams" class="section hidden">
+            <h2>Лучшие команды CS:GO</h2>
+            <div class="section-content">
+                <ul>
+                    <li>
+                        <img src="https://photobooth.cdn.sports.ru/preset/news/8/bb/5805c55564a4886dc5df014fafd55.jpeg" alt="s1mple">
+                        <h3>Natus Vincere (Na'Vi)</h3>
+                        <p>Лучшие игроки: s1mple, b1t.</p>
+                    </li>
+                    <li>
+                        <img src="https://cdn.sanity.io/images/6znhzi10/production/b409dccf443ecc81dfcbdc8eb8b894710223f08b-2048x1365.jpg?w=1416&auto=format" alt="karrigan">
+                        <h3>FaZe Clan</h3>
+                        <p>Лучшие игроки: karrigan, ropz.</p>
+                    </li>
+                    <li>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaFVxAnNmOSSyccgINMltJhQt1a7PoU9B8FA&s" alt="zywoo">
+                        <h3>Vitality</h3>
+                        <p>Лучшие игроки: ZywOo, Magisk.</p>
+                    </li>
+                    <li>
+                        <img src="https://cdn.sanity.io/images/6znhzi10/production/b409dccf443ecc81dfcbdc8eb8b894710223f08b-2048x1365.jpg?w=1416&auto=format" alt="device">
+                        <h3>Astralis</h3>
+                        <p>Знаменитая датская команда, многократные чемпионы Major.</p>
+                        <p>Лучшие игроки: dev1ce, blameF.</p>
+                    </li>
+                    <li>
+                        <img src="https://res.cloudinary.com/pley-gg/image/upload/c_fill,w_900/v1/players/jabbi_jahcxw" alt="jabbi">
+                        <h3>Heroic</h3>
+                        <p>Одна из ведущих команд Дании, известная своей командной игрой.</p>
+                        <p>Лучшие игроки: cadiaN, jabbi.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- История -->
+        <div id="history" class="section hidden">
+            <h2>История CS:GO и происхождение CS2</h2>
+            <div class="section-content">
+                <p>
+                    Counter-Strike: Global Offensive (CS:GO) была выпущена в 2012 году как продолжение культовой серии игр Counter-Strike. Она объединила элементы из CS 1.6 и Source, предложив игрокам улучшенную графику, переработанные карты и соревновательный игровой процесс.
+                </p>
+                <p>
+                    В 2023 году компания Valve выпустила Counter-Strike 2 (CS2), полностью обновленную версию игры. CS2 основана на движке Source 2, что позволило значительно улучшить графику, физику и механику. Основные изменения включают:
+                </p>
+                <ul>
+                    <li>Динамические карты, которые реагируют на действия игроков.</li>
+                    <li>Полностью переработанные дымовые гранаты с объемными эффектами.</li>
+                    <li>Улучшенная производительность и оптимизация для современных систем.</li>
+                </ul>
+                <p>
+                    CS2 стала новой вехой в истории Counter-Strike, сохранив дух оригинала, но предлагая современные улучшения для миллионов поклонников по всему миру.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS:GO Hub</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1b1f23;
+            color: #fff;
+        }
+        header {
+            background: #0d1117;
+            color: #ffbb33;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background: #161b22;
+            padding: 15px 0;
+            border-bottom: 2px solid #ffbb33;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ffbb33;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background: #ffbb33;
+            color: #1b1f23;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            flex-direction: column;
+            color: #ffbb33;
+        }
+        .loading .spinner {
+            width: 50px;
+            height: 50px;
+            border: 6px solid rgba(255, 187, 51, 0.2);
+            border-top: 6px solid #ffbb33;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #292d35;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        ul li:hover {
+            transform: translateY(-5px);
+        }
+        ul li img {
+            float: right;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.loading').style.display = 'none';
+        });
+
+        function showLoading() {
+            const loader = document.querySelector('.loading');
+            loader.style.display = 'flex';
+            setTimeout(() => loader.style.display = 'none', 500);
+        }
+
+        function showSection(sectionId) {
+            showLoading();
+            setTimeout(() => {
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => section.classList.add('hidden'));
+                document.getElementById(sectionId).classList.remove('hidden');
+            }, 500);
+        }
+    </script>
+</head>
+<body>
+    <header>CS:GO Hub</header>
+    <nav>
+        <a onclick="showSection('tournaments')">Турниры</a>
+        <a onclick="showSection('teams')">Команды</a>
+        <a onclick="showSection('history')">История</a>
+    </nav>
+    <div class="loading">
+        <div class="spinner"></div>
+        <p>Загрузка...</p>
+    </div>
+    <div class="content">
+        <!-- Турниры -->
+        <div id="tournaments" class="section">
+            <h2>Текущие и будущие турниры</h2>
+            <div class="section-content">
+                <ul>
+                    <li>
+                        <h3>BLAST Premier World Final 2024</h3>
+                        <p>Дата: 14-18 декабря 2024 года</p>
+                        <p>Призовой фонд: $1,000,000</p>
+                    </li>
+                    <li>
+                        <h3>IEM Katowice 2025</h3>
+                        <p>Дата: 8-17 февраля 2025 года</p>
+                        <p>Локация: Катовице, Польша</p>
+                        <p>Призовой фонд: $1,500,000</p>
+                    </li>
+                    <li>
+                        <h3>ESL Pro League Season 20</h3>
+                        <p>Дата: 3 марта - 2 апреля 2025 года</p>
+                        <p>Локация: Мальта</p>
+                        <p>Призовой фонд: $850,000</p>
+                    </li>
+                    <li>
+                        <h3>PGL Major Copenhagen 2025</h3>
+                        <p>Дата: 10-23 ноября 2025 года</p>
+                        <p>Локация: Копенгаген, Дания</p>
+                        <p>Призовой фонд: $2,000,000</p>
+                    </li>
+                    <li>
+                        <h3>DreamHack Open Summer 2025</h3>
+                        <p>Дата: 20-22 июня 2025 года</p>
+                        <p>Локация: Йёнчёпинг, Швеция</p>
+                        <p>Призовой фонд: $100,000</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="teams" class="section hidden">
+            <h2>Лучшие команды CS:GO</h2>
+            <div class="section-content">
+                <ul>
+                    <li>
+                        <img src="https://photobooth.cdn.sports.ru/preset/news/8/bb/5805c55564a4886dc5df014fafd55.jpeg" alt="s1mple">
+                        <h3>Natus Vincere (Na'Vi)</h3>
+                        <p>Лучшие игроки: s1mple, b1t.</p>
+                    </li>
+                    <li>
+                        <img src="https://img-cdn.hltv.org/gallerypicture/OoslvLrz-AgAsjvABrUpUW.jpg?auto=compress&ixlib=java-2.1.0&m=%2Fm.png&mw=107&mx=20&my=474&q=75&w=800&s=e3bfe181fe708fd68a2dc25e7fc27481" alt="karrigan">
+                        <h3>FaZe Clan</h3>
+                        <p>Лучшие игроки: karrigan, ropz.</p>
+                    </li>
+                    <li>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaFVxAnNmOSSyccgINMltJhQt1a7PoU9B8FA&s" alt="zywoo">
+                        <h3>Vitality</h3>
+                        <p>Лучшие игроки: ZywOo, Magisk.</p>
+                    </li>
+                    <li>
+                        <img src="https://cdn.sanity.io/images/6znhzi10/production/b409dccf443ecc81dfcbdc8eb8b894710223f08b-2048x1365.jpg?w=1416&auto=format" alt="device">
+                        <h3>Astralis</h3>
+                        <p>Знаменитая датская команда, многократные чемпионы Major.</p>
+                        <p>Лучшие игроки: dev1ce, blameF.</p>
+                    </li>
+                    <li>
+                        <img src="https://res.cloudinary.com/pley-gg/image/upload/c_fill,w_900/v1/players/jabbi_jahcxw" alt="jabbi">
+                        <h3>Heroic</h3>
+                        <p>Одна из ведущих команд Дании, известная своей командной игрой.</p>
+                        <p>Лучшие игроки: cadiaN, jabbi.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- История -->
+        <!-- История -->
+<div id="history" class="section hidden">
+    <h2>История CS:GO и происхождение CS2</h2>
+    <div class="section-content">
+        <p>
+            Counter-Strike: Global Offensive (CS:GO) была выпущена в 2012 году как продолжение культовой серии игр Counter-Strike. Она объединила элементы из CS 1.6 и Source, предложив игрокам улучшенную графику, переработанные карты и соревновательный игровой процесс.
+        </p>
+        <p>
+            В 2023 году компания Valve выпустила Counter-Strike 2 (CS2), полностью обновленную версию игры. CS2 основана на движке Source 2, что позволило значительно улучшить графику, физику и механику. Основные изменения включают:
+        </p>
+        <ul>
+            <li>Динамические карты, которые реагируют на действия игроков.</li>
+            <li>Полностью переработанные дымовые гранаты с объемными эффектами.</li>
+            <li>Улучшенная производительность и оптимизация для современных систем.</li>
+        </ul>
+        <p>
+            CS2 стала новой вехой в истории Counter-Strike, сохранив дух оригинала, но предлагая современные улучшения для миллионов поклонников по всему миру.
+        </p>
+    </div>
+</div>
+
+<div id="tournaments" class="section hidden">
+    <h2>Текущие и будущие турниры</h2>
+    <div class="section-content">
+        <ul>
+            <li>
+                <h3>BLAST Premier World Final 2024</h3>
+                <p>Дата: 14-18 декабря 2024 года</p>
+                <p>Призовой фонд: $1,000,000</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Команды -->
+<div id="teams" class="section hidden">
+    <h2>Лучшие команды CS:GO</h2>
+    <div class="section-content">
+        <ul>
+            <li>
+                <img src="s1mple.jpg" alt="s1mple">
+                <h3>Natus Vincere (Na'Vi)</h3>
+                <p>Лучшие игроки: s1mple, b1t.</p>
+            </li>
+        </ul>
+    </div>
+</div>
